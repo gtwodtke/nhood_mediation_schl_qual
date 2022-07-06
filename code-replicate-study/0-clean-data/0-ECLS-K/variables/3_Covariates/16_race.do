@@ -1,0 +1,24 @@
+/*************
+SUBJECT'S RACE 
+*************/
+
+/*
+RACE
+WKRACETH
+W1-3-5-8RACETH
+*/
+
+replace RACE = .b if RACE == -9 // NOT ASCERTAINED
+
+replace WKRACETH = .b if WKRACETH == -9 // NOT ASCERTAINED
+
+replace W1RACETH = .b if W1RACETH == -9 // NOT ASCERTAINED
+replace W3RACETH = .b if W3RACETH == -9 // NOT ASCERTAINED
+replace W5RACETH = .b if W5RACETH == -9 // NOT ASCERTAINED
+replace W8RACETH = .b if W8RACETH == -9 // NOT ASCERTAINED
+
+recode RACE (6 7 8 = 6), gen(RACE_recoded)
+
+label define race 1 "WHITE, NON-HISPANIC" 2 "BLACK OR AFRICAN AMERICAN, NON-HISPANIC" 3 "HISPANIC, RACE SPECIFIED" 4 "HISPANIC, RACE NOT SPECIFIED" 5 "ASIAN" 6 "OTHER"
+
+label values RACE_recoded race

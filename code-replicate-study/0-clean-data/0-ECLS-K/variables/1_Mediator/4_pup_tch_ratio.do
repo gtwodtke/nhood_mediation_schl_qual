@@ -1,0 +1,38 @@
+/******************
+PUPIL-TEACHER RATIO 
+******************/
+
+/*
+S2-4ADMFTE
+S2-4TCHFTE
+S2-4GYMFTE 
+S2-4CMPFTE 
+S2-4HDSFTE 
+S2-4CRDFTE 
+S2-4TT1FTE 
+S2-4AIDFTE 
+S2-4SPEFTE 
+S2-4SPAFTE 
+S2-4ESLFTE 
+S2-4ESAFTE 
+S2-4LIAFTE 
+S2-4COUFTE 
+S2-4LIBFTE 
+S2-4THRFTE 
+S2-4NRSFTE 
+S2-4NONFTE 
+S2-4REAFTE 
+S2-4MSCFTE 
+S2-4FRLFTE 
+S2-4OTHFTE 
+S2-4FTETOT
+*/
+
+// Use TCHFTE (not FTETOT), as in CCD
+// Generate pupil-teacher (not teacher-pupil) ratio, as in CCD
+
+replace S2TCHFTE = .b if S2TCHFTE == -9 // NOT ASCERTAINED
+replace S4TCHFTE = .b if S4TCHFTE == -9 // NOT ASCERTAINED
+
+gen puptch_ver_one_2 = (S2ANUMCH+S2BNUMCH)/S2TCHFTE
+gen puptch_ver_one_4 = (S4ANUMCH+S4BNUMCH)/S4TCHFTE
